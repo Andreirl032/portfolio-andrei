@@ -17,13 +17,10 @@
 }
 
 body {
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
+  background-color: #122131;
+  color: #e6e6e6
+  
+  /*cores para possível futuro: #6290c8, #2d936c, #4f7cac, #21A179, #519872*/
 }
 
 @layer utilities {
