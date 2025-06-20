@@ -12,7 +12,7 @@ export default function Home() {
   //Inicialização do AOS
   useEffect(() => {
     AOS.init({
-      duration: 600,
+      duration: 1000,
       once: false,
     });
   }, []);
