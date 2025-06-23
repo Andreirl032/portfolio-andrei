@@ -19,7 +19,7 @@ import sql from "../../public/assets/logos/sql.png";
 import firebase from "../../public/assets/logos/firebase.png";
 import mongodb from "../../public/assets/logos/mongodb.png";
 import tailwind from "../../public/assets/logos/tailwind.png";
-import native from "../../public/assets/logos/html.png";
+import native from "../../public/assets/logos/native.png";
 
 import telemidia from "../../public/assets/labs/telemidia-removebg.png";
 import pulse from "../../public/assets/labs/pulse-removebg.png";
@@ -41,12 +41,33 @@ export default function Home() {
   const projetosRef = useRef<null | HTMLDivElement>(null);
   const contatoRef = useRef<null | HTMLDivElement>(null);
 
-  const reference:Reference = {
+  const reference: Reference = {
     inicio: inicioRef,
     tecnologias: tecnologiasRef,
     projetos: projetosRef,
     contato: contatoRef,
   };
+
+  const linha1 = [
+    { src: html, alt: "html" },
+    { src: css, alt: "css" },
+    { src: js, alt: "js" },
+    { src: ts, alt: "ts" },
+  ];
+
+  const linha2 = [
+    { src: react, alt: "react" },
+    { src: native, alt: "native" },
+    { src: next, alt: "next" },
+    { src: tailwind, alt: "tailwind" },
+  ];
+
+  const linha3 = [
+    { src: python, alt: "python" },
+    { src: sql, alt: "sql" },
+    { src: firebase, alt: "firebase" },
+    { src: mongodb, alt: "mongodb" },
+  ];
 
   //Inicialização do AOS
   useEffect(() => {
@@ -96,127 +117,36 @@ export default function Home() {
           ref={tecnologiasRef}
         >
           <div className="flex flex-col gap-8 items-center">
-            <h1 data-aos="fade-down" className="font-bold text-4xl">Tecnologias</h1>
+            <h1 data-aos="fade-down" className="font-bold text-4xl">
+              Tecnologias
+            </h1>
             <h2 data-aos="fade-down" className="w-[50%] text-2xl text-center">
               Tenho conhecimentos principalmente em desenvolvimento web e
               mobile, e ao longo do tempo aprendi acerca de diversas
               tecnologias, sendo as principais:
             </h2>
             <div className="flex flex-col gap-6">
-              <div className="flex flex-row gap-10 justify-center items-center">
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={html}
-                    alt="html"
-                  />
+              {[linha1, linha2, linha3].map((linha, i) => (
+                <div
+                  key={i}
+                  className="flex gap-10 justify-center items-center"
+                >
+                  {linha.map((img, j) => (
+                    <div
+                      key={j}
+                      className="w-44 h-44 p-6 border-[1px] border-black dark:border-gray-300 rounded-xl flex justify-center items-center hover:scale-105 transition-all"
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={100}
+                        height={100}
+                        className="object-contain w-full h-full"
+                      />
+                    </div>
+                  ))}
                 </div>
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={css}
-                    alt="css"
-                  />
-                </div>
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={js}
-                    alt="js"
-                  />
-                </div>
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={ts}
-                    alt="ts"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-row gap-10">
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={react}
-                    alt="react"
-                  />
-                </div>
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={native}
-                    alt="native"
-                  />
-                </div>
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={next}
-                    alt="next"
-                  />
-                </div>
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={tailwind}
-                    alt="tailwind"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-row gap-10">
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={python}
-                    alt="python"
-                  />
-                </div>
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={sql}
-                    alt="sql"
-                  />
-                </div>
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={firebase}
-                    alt="firebase"
-                  />
-                </div>
-                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
-                  <Image
-                    height={100}
-                    width={100}
-                    objectFit="contain"
-                    src={mongodb}
-                    alt="mongodb"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -226,7 +156,9 @@ export default function Home() {
           ref={projetosRef}
         >
           <div className="flex flex-col gap-8 items-center">
-            <h1 data-aos="fade-down" className="font-bold text-4xl">Projetos</h1>
+            <h1 data-aos="fade-down" className="font-bold text-4xl">
+              Projetos
+            </h1>
             <h2 data-aos="fade-down" className="w-[50%] text-2xl text-center">
               Ao longo do meu curso na ciência da computação, participei de
               excelentes projetos em locais de renome, como:
