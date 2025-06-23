@@ -96,8 +96,8 @@ export default function Home() {
           ref={tecnologiasRef}
         >
           <div className="flex flex-col gap-8 items-center">
-            <h1 className="font-bold text-4xl">Tecnologias</h1>
-            <h2 className="w-[50%] text-2xl text-center">
+            <h1 data-aos="fade-down" className="font-bold text-4xl">Tecnologias</h1>
+            <h2 data-aos="fade-down" className="w-[50%] text-2xl text-center">
               Tenho conhecimentos principalmente em desenvolvimento web e
               mobile, e ao longo do tempo aprendi acerca de diversas
               tecnologias, sendo as principais:
@@ -226,8 +226,8 @@ export default function Home() {
           ref={projetosRef}
         >
           <div className="flex flex-col gap-8 items-center">
-            <h1 className="font-bold text-4xl">Projetos</h1>
-            <h2 className="w-[50%] text-2xl text-center">
+            <h1 data-aos="fade-down" className="font-bold text-4xl">Projetos</h1>
+            <h2 data-aos="fade-down" className="w-[50%] text-2xl text-center">
               Ao longo do meu curso na ciência da computação, participei de
               excelentes projetos em locais de renome, como:
             </h2>
@@ -252,7 +252,7 @@ export default function Home() {
                   height={200}
                   objectFit="contain"
                   src={pulse}
-                  alt="telemidia"
+                  alt="pulse"
                   className="bg-black dark:bg-current mb-5"
                 ></Image>
                 <h1 className="font-bold text-xl">Pulse</h1>
