@@ -21,6 +21,13 @@ import mongodb from "../../public/assets/logos/mongodb.png";
 import tailwind from "../../public/assets/logos/tailwind.png";
 import native from "../../public/assets/logos/html.png";
 
+import telemidia from "../../public/assets/labs/telemidia-removebg.png";
+import pulse from "../../public/assets/labs/pulse-removebg.png";
+import viplab from "../../public/assets/labs/viplab-removebg.png";
+import lsdi from "../../public/assets/labs/lsdi-removebg.png";
+
+import Footer from "./components/Footer";
+
 export default function Home() {
   const scrollRef = useRef<null | HTMLDivElement>(null);
   //Inicialização do AOS
@@ -65,6 +72,7 @@ export default function Home() {
             />
           </div>
         </section>
+
         <section
           className="flex w-auto items-center justify-center mt-28"
           ref={scrollRef}
@@ -78,7 +86,7 @@ export default function Home() {
             </h2>
             <div className="flex flex-col gap-6">
               <div className="flex flex-row gap-10 justify-center items-center">
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -87,7 +95,7 @@ export default function Home() {
                     alt="html"
                   />
                 </div>
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -96,7 +104,7 @@ export default function Home() {
                     alt="css"
                   />
                 </div>
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -105,7 +113,7 @@ export default function Home() {
                     alt="js"
                   />
                 </div>
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -116,7 +124,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -125,7 +133,7 @@ export default function Home() {
                     alt="react"
                   />
                 </div>
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -134,7 +142,7 @@ export default function Home() {
                     alt="native"
                   />
                 </div>
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -143,7 +151,7 @@ export default function Home() {
                     alt="next"
                   />
                 </div>
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -154,7 +162,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -163,7 +171,7 @@ export default function Home() {
                     alt="python"
                   />
                 </div>
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -172,7 +180,7 @@ export default function Home() {
                     alt="sql"
                   />
                 </div>
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -181,7 +189,7 @@ export default function Home() {
                     alt="firebase"
                   />
                 </div>
-                <div className="max-w-18 max-h-18">
+                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -194,10 +202,91 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <section
           className="flex w-auto items-center justify-center mt-28"
           ref={scrollRef}
-        ></section>
+        >
+          <div className="flex flex-col gap-8 items-center">
+            <h1 className="font-bold text-4xl">Projetos</h1>
+            <h2 className="w-[50%] text-2xl text-center">
+              Ao longo do meu curso na ciência da computação, participei de
+              excelentes projetos em locais de renome, como:
+            </h2>
+            <div className="flex flex-row gap-4">
+              <div className="p-8 max-w-64 rounded-xl border-[1px] border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
+                <Image
+                  width={200}
+                  height={200}
+                  objectFit="contain"
+                  src={telemidia}
+                  alt="telemidia"
+                ></Image>
+                <h1 className="font-bold text-xl">Telemídia-MA</h1>
+                <h2 className="max-w-32 text-center text-sm">
+                  Trabalhei como desenvolvedor fullstack do projeto Cosmo, um
+                  website destinado ao ensino gamificado de algoritmos
+                </h2>
+              </div>
+              <div className="p-8 max-w-64 rounded-xl border-[1px] border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
+                <Image
+                  width={200}
+                  height={200}
+                  objectFit="contain"
+                  src={pulse}
+                  alt="telemidia"
+                ></Image>
+                <h1 className="font-bold text-xl">Pulse</h1>
+                <h2 className="max-w-32 text-center text-sm">
+                  Atuei como estagiário da Pulse, o setor de tecnologia do Grupo
+                  Mateus, em parceria com o Telemídia-MA para a instrução de
+                  jovens aprendizes e organização de uma maratona de programação
+                </h2>
+              </div>
+              <div className="p-8 max-w-64 rounded-xl border-[1px] border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
+                <Image
+                  width={200}
+                  height={200}
+                  objectFit="contain"
+                  src={viplab}
+                  alt="viplab"
+                ></Image>
+                <h1 className="font-bold text-xl text-center">
+                  VIPLab (Vision and Image Processing Lab)
+                </h1>
+                <h2 className="max-w-32 text-center text-sm">
+                  Desenvolvi uma aplicação móvel para acompanhamento de miopia,
+                  mediante projeto de iniciação tecnológica financiado pelo CNPq
+                </h2>
+              </div>
+              <div className="p-8 max-w-64 rounded-xl border-[1px] border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
+                <Image
+                  width={200}
+                  height={200}
+                  objectFit="contain"
+                  src={lsdi}
+                  alt="lsdi"
+                  className="my-10"
+                ></Image>
+                <h1 className="font-bold text-xl text-center">
+                  LSDi (Laboratório de Sistemas Distribuídos Inteligentes)
+                </h1>
+                <h2 className="max-w-32 text-center text-sm">
+                  Participante da versão 2.0 do SESI Monitore, atuando em coleta
+                  e distribuição de dados de monitoramento da saúde dos
+                  trabalhadores, na área de Internet das Coisas(IoT)
+                </h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="flex w-auto items-center justify-center mt-28"
+          ref={scrollRef}
+        >
+          <Footer />
+        </section>
       </main>
     </>
   );
