@@ -86,7 +86,7 @@ export default function Home() {
             </h2>
             <div className="flex flex-col gap-6">
               <div className="flex flex-row gap-10 justify-center items-center">
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -95,7 +95,7 @@ export default function Home() {
                     alt="html"
                   />
                 </div>
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -104,7 +104,7 @@ export default function Home() {
                     alt="css"
                   />
                 </div>
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -113,7 +113,7 @@ export default function Home() {
                     alt="js"
                   />
                 </div>
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -124,7 +124,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -133,7 +133,7 @@ export default function Home() {
                     alt="react"
                   />
                 </div>
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -142,7 +142,7 @@ export default function Home() {
                     alt="native"
                   />
                 </div>
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -151,7 +151,7 @@ export default function Home() {
                     alt="next"
                   />
                 </div>
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -162,7 +162,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -171,7 +171,7 @@ export default function Home() {
                     alt="python"
                   />
                 </div>
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -180,7 +180,7 @@ export default function Home() {
                     alt="sql"
                   />
                 </div>
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -189,7 +189,7 @@ export default function Home() {
                     alt="firebase"
                   />
                 </div>
-                <div className="p-16 border-[1px] border-gray-300 rounded-xl flex justify-center items-center">
+                <div className="p-16 border-[1px] hover:scale-105 transition-all border-black dark:border-gray-300 rounded-xl flex justify-center items-center">
                   <Image
                     height={100}
                     width={100}
@@ -214,7 +214,7 @@ export default function Home() {
               excelentes projetos em locais de renome, como:
             </h2>
             <div className="flex flex-row gap-4">
-              <div className="p-8 max-w-64 rounded-xl border-[1px] border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
+              <div className="p-8 max-w-64 rounded-xl border-[1px] border-black dark:border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
                 <Image
                   width={200}
                   height={200}
@@ -228,13 +228,14 @@ export default function Home() {
                   website destinado ao ensino gamificado de algoritmos
                 </h2>
               </div>
-              <div className="p-8 max-w-64 rounded-xl border-[1px] border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
+              <div className="p-8 max-w-64 rounded-xl border-[1px] border-black dark:border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
                 <Image
                   width={200}
                   height={200}
                   objectFit="contain"
                   src={pulse}
                   alt="telemidia"
+                  className="bg-black dark:bg-current mb-5"
                 ></Image>
                 <h1 className="font-bold text-xl">Pulse</h1>
                 <h2 className="max-w-32 text-center text-sm">
@@ -243,7 +244,7 @@ export default function Home() {
                   jovens aprendizes e organização de uma maratona de programação
                 </h2>
               </div>
-              <div className="p-8 max-w-64 rounded-xl border-[1px] border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
+              <div className="p-8 max-w-64 rounded-xl border-[1px] border-black dark:border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
                 <Image
                   width={200}
                   height={200}
@@ -259,7 +260,7 @@ export default function Home() {
                   mediante projeto de iniciação tecnológica financiado pelo CNPq
                 </h2>
               </div>
-              <div className="p-8 max-w-64 rounded-xl border-[1px] border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
+              <div className="p-8 max-w-64 rounded-xl border-[1px] border-black dark:border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
                 <Image
                   width={200}
                   height={200}
