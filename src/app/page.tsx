@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Header from "./components/Header";
 import myself from "../../public/assets/eu.png";
-import { useEffect, useRef } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -28,8 +28,26 @@ import lsdi from "../../public/assets/labs/lsdi-removebg.png";
 
 import Footer from "./components/Footer";
 
+interface Reference {
+  inicio: MutableRefObject<null | HTMLDivElement>;
+  tecnologias: MutableRefObject<null | HTMLDivElement>;
+  projetos: MutableRefObject<null | HTMLDivElement>;
+  contato: MutableRefObject<null | HTMLDivElement>;
+}
+
 export default function Home() {
-  const scrollRef = useRef<null | HTMLDivElement>(null);
+  const inicioRef = useRef<null | HTMLDivElement>(null);
+  const tecnologiasRef = useRef<null | HTMLDivElement>(null);
+  const projetosRef = useRef<null | HTMLDivElement>(null);
+  const contatoRef = useRef<null | HTMLDivElement>(null);
+
+  const reference:Reference = {
+    inicio: inicioRef,
+    tecnologias: tecnologiasRef,
+    projetos: projetosRef,
+    contato: contatoRef,
+  };
+
   //Inicialização do AOS
   useEffect(() => {
     AOS.init({
@@ -41,13 +59,13 @@ export default function Home() {
   return (
     <>
       {/* Header da página */}
-      <Header ref={scrollRef} />
+      <Header reference={reference} />
 
       <main className="mt-16 overflow-x-hidden">
         {/* Container da página inicial */}
         <section
           className="flex w-auto flex-row items-center justify-between"
-          ref={scrollRef}
+          ref={inicioRef}
         >
           {/* Texto de descrição */}
           <div className="ml-24 w-full" data-aos="fade-right">
@@ -75,7 +93,7 @@ export default function Home() {
 
         <section
           className="flex w-auto items-center justify-center mt-28"
-          ref={scrollRef}
+          ref={tecnologiasRef}
         >
           <div className="flex flex-col gap-8 items-center">
             <h1 className="font-bold text-4xl">Tecnologias</h1>
@@ -205,7 +223,7 @@ export default function Home() {
 
         <section
           className="flex w-auto items-center justify-center mt-28"
-          ref={scrollRef}
+          ref={projetosRef}
         >
           <div className="flex flex-col gap-8 items-center">
             <h1 className="font-bold text-4xl">Projetos</h1>
@@ -284,7 +302,7 @@ export default function Home() {
 
         <section
           className="flex w-auto items-center justify-center mt-28"
-          ref={scrollRef}
+          ref={contatoRef}
         >
           <Footer />
         </section>
