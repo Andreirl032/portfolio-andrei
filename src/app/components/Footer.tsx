@@ -16,7 +16,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             href="https://github.com/Andreirl032"
             aria-label="GitHub"
-            className="transition-transform hover:scale-110"
+            className="transition-transform duration-300 ease-out hover:scale-110"
           >
             <Image
               src="/assets/github.svg"
@@ -31,7 +31,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             href="https://www.linkedin.com/in/andrei-ramos-lopes-55aa89268/"
             aria-label="LinkedIn"
-            className="transition-transform hover:scale-110"
+            className="transition-transform duration-300 ease-out hover:scale-110"
           >
             <Image
               src="/assets/linkedin.svg"
@@ -46,7 +46,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             href="mailto:andrei.ramos.lopes@gmail.com"
             aria-label="Email"
-            className="transition-transform hover:scale-110"
+            className="transition-transform duration-300 ease-out hover:scale-110"
           >
             <Image
               src="/assets/email.svg"

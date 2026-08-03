@@ -53,10 +53,15 @@ export default function LanguageToggle() {
           ? "Idioma atual: Português"
           : "Current language: English"
       }
-      className="flex h-8 shrink-0 items-center gap-1.5 rounded-md border border-gray-300 bg-white px-2.5 text-xs font-semibold tracking-wide transition-colors hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700"
+      className="interactive-scale theme-transition flex h-8 shrink-0 items-center overflow-hidden rounded-md border border-gray-300 bg-white px-2.5 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700"
     >
-      {locale === "pt" ? <BrazilFlag /> : <UsaFlag />}
-      <span>{locale === "pt" ? "PT" : "EN"}</span>
+      <span
+        key={locale}
+        className="flex animate-scale-in items-center gap-1.5 text-xs font-semibold tracking-wide"
+      >
+        {locale === "pt" ? <BrazilFlag /> : <UsaFlag />}
+        <span>{locale === "pt" ? "PT" : "EN"}</span>
+      </span>
     </button>
   );
 }

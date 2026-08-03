@@ -13,7 +13,7 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
   const content = project[locale];
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-gray-300 bg-white shadow-sm transition-all hover:scale-[1.02] hover:shadow-md dark:border-gray-600 dark:bg-[#1a3044]">
+    <article className="card-hover theme-transition group flex flex-col overflow-hidden rounded-xl border border-gray-300 bg-white shadow-sm dark:border-gray-600 dark:bg-[#1a3044]">
       <div className="relative aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
         <Image
           src={project.image}

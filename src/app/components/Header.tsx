@@ -19,7 +19,7 @@ interface HeaderProps {
 
 const Header = ({ reference }: HeaderProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
 
   const navItems = [
     { key: "home", ref: reference.inicio },
@@ -51,7 +51,7 @@ const Header = ({ reference }: HeaderProps) => {
 
   return (
     <header className="sticky top-0 z-50 mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
-      <div className="flex h-16 items-center justify-between rounded-xl border-2 border-gray-300 bg-[#e6e6e6] px-4 shadow-lg dark:border-gray-600 dark:bg-[#122131] sm:px-6">
+      <div className="theme-transition flex h-16 items-center justify-between rounded-xl border-2 border-gray-300 bg-[#e6e6e6] px-4 shadow-lg dark:border-gray-600 dark:bg-[#122131] sm:px-6">
         <button
           type="button"
           className="text-lg font-bold md:hidden"
@@ -60,13 +60,13 @@ const Header = ({ reference }: HeaderProps) => {
           ARL
         </button>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav key={locale} className="hidden animate-fade-in items-center gap-6 md:flex">
           {navItems.map(({ key, ref }) => (
             <button
               key={key}
               type="button"
               onClick={() => scrollToSection(ref)}
-              className="text-base transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+              className="text-base transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400"
             >
               {t.nav[key]}
             </button>
@@ -111,7 +111,10 @@ const Header = ({ reference }: HeaderProps) => {
       </div>
 
       {menuOpen && (
-        <nav className="mt-2 flex flex-col gap-2 rounded-xl border-2 border-gray-300 bg-[#e6e6e6] p-4 shadow-lg dark:border-gray-600 dark:bg-[#122131] md:hidden">
+        <nav
+          key={`mobile-${locale}`}
+          className="theme-transition mt-2 flex animate-slide-down flex-col gap-2 rounded-xl border-2 border-gray-300 bg-[#e6e6e6] p-4 shadow-lg dark:border-gray-600 dark:bg-[#122131] md:hidden"
+        >
           {navItems.map(({ key, ref }) => (
             <button
               key={key}

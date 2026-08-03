@@ -36,7 +36,9 @@ export default function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="h-7 w-14 shrink-0 rounded-full bg-gray-200 dark:bg-gray-700" />;
+    return (
+      <div className="h-7 w-14 shrink-0 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700" />
+    );
   }
 
   const isDark = resolvedTheme === "dark";
@@ -48,14 +50,25 @@ export default function ThemeToggle() {
       aria-checked={isDark}
       aria-label={isDark ? "Ativar modo claro" : "Ativar modo escuro"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative h-7 w-14 shrink-0 rounded-full bg-gray-200 p-0.5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:bg-gray-700"
+      className={`interactive-scale theme-transition relative h-7 w-14 shrink-0 rounded-full p-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 ${
+        isDark ? "bg-slate-600" : "bg-amber-200/80"
+      }`}
     >
-      <SunIcon className="pointer-events-none absolute left-1.5 top-1.5 h-4 w-4 text-amber-500" />
-      <MoonIcon className="pointer-events-none absolute right-1.5 top-1.5 h-4 w-4 text-slate-400" />
+      <SunIcon
+        className={`theme-transition pointer-events-none absolute left-1.5 top-1.5 h-4 w-4 text-amber-500 ${
+          isDark ? "scale-90 opacity-40" : "scale-110 opacity-100"
+        }`}
+      />
+      <MoonIcon
+        className={`theme-transition pointer-events-none absolute right-1.5 top-1.5 h-4 w-4 text-indigo-200 ${
+          isDark ? "scale-110 opacity-100" : "scale-90 opacity-40"
+        }`}
+      />
       <span
-        className={`block h-6 w-6 rounded-full bg-white shadow-sm transition-transform duration-200 ease-out ${
+        className={`theme-transition block h-6 w-6 rounded-full bg-white shadow-md ease-spring ${
           isDark ? "translate-x-7" : "translate-x-0"
         }`}
+        style={{ transitionProperty: "transform", transitionDuration: "300ms" }}
       />
     </button>
   );

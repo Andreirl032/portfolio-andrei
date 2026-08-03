@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import PortfolioCard from "./components/PortfolioCard";
 import { MutableRefObject, useEffect, useRef } from "react";
 import { useLanguage } from "./components/LanguageProvider";
+import LocaleTransition from "./components/LocaleTransition";
 import { projects } from "./data/projects";
 
 import AOS from "aos";
@@ -96,6 +97,7 @@ export default function Home() {
     <>
       <Header reference={reference} />
 
+      <LocaleTransition>
       <main className="mx-auto max-w-7xl overflow-x-hidden px-4 pb-8 sm:px-6 lg:px-8">
         {/* Hero */}
         <section
@@ -155,7 +157,7 @@ export default function Home() {
                   key={logo.alt}
                   data-aos="fade-up"
                   data-aos-delay={index * 50}
-                  className="flex aspect-square items-center justify-center rounded-xl border border-gray-300 bg-white p-4 transition-transform hover:scale-105 dark:border-gray-600 dark:bg-[#1a3044] sm:p-6"
+              className="card-hover theme-transition flex aspect-square items-center justify-center rounded-xl border border-gray-300 bg-white p-4 dark:border-gray-600 dark:bg-[#1a3044] sm:p-6"
                 >
                   <Image
                     src={logo.src}
@@ -195,7 +197,7 @@ export default function Home() {
                   key={item.key}
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
-                  className="flex flex-col items-center rounded-xl border border-gray-300 bg-white p-6 transition-transform hover:scale-[1.02] dark:border-gray-600 dark:bg-[#1a3044]"
+                  className="card-hover theme-transition flex flex-col items-center rounded-xl border border-gray-300 bg-white p-6 dark:border-gray-600 dark:bg-[#1a3044]"
                 >
                   <Image
                     width={160}
@@ -250,6 +252,7 @@ export default function Home() {
       <section ref={contatoRef} className="scroll-mt-24">
         <Footer />
       </section>
+      </LocaleTransition>
     </>
   );
 }
