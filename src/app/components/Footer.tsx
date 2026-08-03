@@ -8,9 +8,11 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#2081C3] text-white">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 px-4 py-12 sm:px-6 lg:px-8">
-        <h2 className="text-xl font-bold sm:text-2xl">{t.contact.title}</h2>
-        <div className="flex flex-row flex-wrap items-center justify-center gap-8">
+      <div className="page-container flex flex-col items-center justify-center gap-5 py-10 sm:gap-6 sm:py-12">
+        <h2 className="text-lg font-bold sm:text-xl lg:text-2xl">
+          {t.contact.title}
+        </h2>
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -21,9 +23,9 @@ const Footer = () => {
             <Image
               src="/assets/github.svg"
               alt="GitHub"
-              height={50}
-              width={50}
-              className="brightness-0 invert"
+              height={44}
+              width={44}
+              className="h-10 w-10 brightness-0 invert sm:h-11 sm:w-11"
             />
           </a>
           <a
@@ -36,9 +38,9 @@ const Footer = () => {
             <Image
               src="/assets/linkedin.svg"
               alt="LinkedIn"
-              height={50}
-              width={50}
-              className="brightness-0 invert"
+              height={44}
+              width={44}
+              className="h-10 w-10 brightness-0 invert sm:h-11 sm:w-11"
             />
           </a>
           <a
@@ -51,9 +53,9 @@ const Footer = () => {
             <Image
               src="/assets/email.svg"
               alt="Email"
-              height={50}
-              width={50}
-              className="brightness-0 invert"
+              height={44}
+              width={44}
+              className="h-10 w-10 brightness-0 invert sm:h-11 sm:w-11"
             />
           </a>
         </div>

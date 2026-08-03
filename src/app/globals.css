@@ -29,6 +29,10 @@
 }
 
 @layer components {
+  .page-container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
   .theme-transition {
     @apply transition-[background-color,border-color,color,box-shadow] duration-200 ease-out;
   }
@@ -39,6 +43,38 @@
 
   .card-hover {
     @apply transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-md;
+  }
+
+  .card-surface {
+    @apply rounded-xl border border-gray-300 bg-white dark:border-gray-600 dark:bg-[#1a3044];
+  }
+
+  .section {
+    @apply scroll-mt-28 py-14 sm:py-16 lg:py-20;
+  }
+
+  .section-inner {
+    @apply mx-auto flex w-full max-w-6xl flex-col items-center gap-6 sm:gap-8;
+  }
+
+  .section-title {
+    @apply text-center text-2xl font-bold sm:text-3xl lg:text-4xl;
+  }
+
+  .section-description {
+    @apply max-w-2xl text-center text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base lg:text-lg;
+  }
+
+  .grid-tech {
+    @apply grid w-full grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 lg:gap-5;
+  }
+
+  .grid-experience {
+    @apply grid w-full grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3;
+  }
+
+  .grid-portfolio {
+    @apply grid w-full grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3;
   }
 }
 

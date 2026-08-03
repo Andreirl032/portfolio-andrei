@@ -35,7 +35,7 @@ const Header = ({ reference }: HeaderProps) => {
     setMenuOpen(false);
     window.scrollTo({
       top: elmRef.current?.offsetTop
-        ? elmRef.current.offsetTop - 96
+        ? elmRef.current.offsetTop - 112
         : undefined,
       behavior: "smooth",
     });
@@ -50,37 +50,40 @@ const Header = ({ reference }: HeaderProps) => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
-      <div className="theme-transition flex h-16 items-center justify-between rounded-xl border-2 border-gray-300 bg-[#e6e6e6] px-4 shadow-lg dark:border-gray-600 dark:bg-[#122131] sm:px-6">
+    <header className="page-container sticky top-0 z-50 pt-3 sm:pt-4">
+      <div className="theme-transition flex h-14 items-center justify-between gap-3 rounded-xl border border-gray-300 bg-[#e6e6e6] px-3 shadow-lg dark:border-gray-600 dark:bg-[#122131] sm:h-16 sm:gap-4 sm:px-5 lg:px-6">
         <button
           type="button"
-          className="text-lg font-bold md:hidden"
+          className="shrink-0 text-base font-bold sm:text-lg md:hidden"
           onClick={() => scrollToSection(reference.inicio)}
         >
           ARL
         </button>
 
-        <nav key={locale} className="hidden animate-fade-in items-center gap-6 md:flex">
+        <nav
+          key={locale}
+          className="hidden min-w-0 flex-1 animate-fade-in items-center justify-center gap-4 lg:gap-6 md:flex"
+        >
           {navItems.map(({ key, ref }) => (
             <button
               key={key}
               type="button"
               onClick={() => scrollToSection(ref)}
-              className="text-base transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400"
+              className="whitespace-nowrap text-sm transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 lg:text-base"
             >
               {t.nav[key]}
             </button>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <LanguageToggle />
-          <div className="h-5 w-px bg-gray-300 dark:bg-gray-600" />
+          <div className="hidden h-5 w-px bg-gray-300 dark:bg-gray-600 sm:block" />
           <ThemeToggle />
 
           <button
             type="button"
-            className="rounded-md p-2 md:hidden"
+            className="rounded-md p-1.5 md:hidden"
             aria-label="Menu"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
@@ -113,14 +116,14 @@ const Header = ({ reference }: HeaderProps) => {
       {menuOpen && (
         <nav
           key={`mobile-${locale}`}
-          className="theme-transition mt-2 flex animate-slide-down flex-col gap-2 rounded-xl border-2 border-gray-300 bg-[#e6e6e6] p-4 shadow-lg dark:border-gray-600 dark:bg-[#122131] md:hidden"
+          className="theme-transition card-surface mt-2 flex animate-slide-down flex-col gap-1 p-2 shadow-lg md:hidden"
         >
           {navItems.map(({ key, ref }) => (
             <button
               key={key}
               type="button"
               onClick={() => scrollToSection(ref)}
-              className="rounded-md px-3 py-2 text-left text-base transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+              className="rounded-lg px-3 py-2.5 text-left text-sm transition-colors hover:bg-gray-200 dark:hover:bg-gray-700 sm:text-base"
             >
               {t.nav[key]}
             </button>

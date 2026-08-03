@@ -64,7 +64,7 @@ const experienceItems = [
     key: "pulse" as const,
     image: "/assets/labs/pulse-removebg.png",
     alt: "Pulse",
-    imageClass: "bg-black dark:bg-gray-700 rounded-lg p-2",
+    imageClass: "rounded-lg bg-black p-2 dark:bg-gray-700",
   },
 ];
 
@@ -98,162 +98,141 @@ export default function Home() {
       <Header reference={reference} />
 
       <LocaleTransition>
-      <main className="mx-auto max-w-7xl overflow-x-hidden px-4 pb-8 sm:px-6 lg:px-8">
-        {/* Hero */}
-        <section
-          ref={inicioRef}
-          className="flex min-h-[calc(100vh-6rem)] flex-col items-center justify-center gap-10 py-12 md:flex-row md:gap-16 lg:py-20"
-        >
-          <div className="flex-1 text-center md:text-left" data-aos="fade-right">
-            <p className="text-lg text-blue-600 dark:text-blue-400 sm:text-xl">
-              {t.hero.welcome}
-            </p>
-            <h1 className="mt-2 text-3xl font-bold sm:text-4xl lg:text-5xl">
-              {t.hero.name}
-            </h1>
-            <h2 className="mt-2 text-xl sm:text-2xl">{t.hero.role}</h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg">
-              {t.hero.description}
-            </p>
-          </div>
-
-          <div
-            className="flex shrink-0 justify-center md:justify-end"
-            data-aos="fade-left"
+        <main className="page-container overflow-x-hidden pb-10 sm:pb-12">
+          <section
+            ref={inicioRef}
+            className="section flex min-h-[calc(100dvh-5.5rem)] flex-col items-center justify-center gap-8 sm:gap-10 md:flex-row md:gap-12 lg:gap-16"
           >
-            <Image
-              width={400}
-              height={400}
-              src="/assets/eu.png"
-              alt="Andrei Ramos Lopes"
-              priority
-              className="h-auto w-64 rounded-3xl shadow-xl sm:w-80 lg:w-[400px]"
-            />
-          </div>
-        </section>
-
-        {/* Technologies */}
-        <section
-          ref={tecnologiasRef}
-          className="scroll-mt-24 py-16 lg:py-24"
-        >
-          <div className="flex flex-col items-center gap-8">
-            <h2
-              data-aos="fade-down"
-              className="text-3xl font-bold sm:text-4xl"
+            <div
+              className="w-full flex-1 text-center md:text-left"
+              data-aos="fade-right"
             >
-              {t.technologies.title}
-            </h2>
-            <p
-              data-aos="fade-down"
-              className="max-w-2xl text-center text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg"
-            >
-              {t.technologies.description}
-            </p>
-
-            <div className="mt-4 grid w-full max-w-5xl grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
-              {techLogos.map((logo, index) => (
-                <div
-                  key={logo.alt}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 50}
-              className="card-hover theme-transition flex aspect-square items-center justify-center rounded-xl border border-gray-300 bg-white p-4 dark:border-gray-600 dark:bg-[#1a3044] sm:p-6"
-                >
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={80}
-                    height={80}
-                    className="h-auto w-full max-w-[80px] object-contain"
-                  />
-                </div>
-              ))}
+              <p className="text-base text-blue-600 dark:text-blue-400 sm:text-lg lg:text-xl">
+                {t.hero.welcome}
+              </p>
+              <h1 className="mt-2 text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-5xl">
+                {t.hero.name}
+              </h1>
+              <h2 className="mt-2 text-lg sm:text-xl lg:text-2xl">
+                {t.hero.role}
+              </h2>
+              <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base lg:text-lg md:mx-0">
+                {t.hero.description}
+              </p>
             </div>
-          </div>
-        </section>
 
-        {/* Experience */}
-        <section
-          ref={experienciaRef}
-          className="scroll-mt-24 py-16 lg:py-24"
-        >
-          <div className="flex flex-col items-center gap-8">
-            <h2
-              data-aos="fade-down"
-              className="text-3xl font-bold sm:text-4xl"
+            <div
+              className="flex w-full shrink-0 justify-center md:w-auto md:justify-end"
+              data-aos="fade-left"
             >
-              {t.experience.title}
-            </h2>
-            <p
-              data-aos="fade-down"
-              className="max-w-2xl text-center text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg"
-            >
-              {t.experience.description}
-            </p>
-
-            <div className="mt-4 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {experienceItems.map((item, index) => (
-                <div
-                  key={item.key}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
-                  className="card-hover theme-transition flex flex-col items-center rounded-xl border border-gray-300 bg-white p-6 dark:border-gray-600 dark:bg-[#1a3044]"
-                >
-                  <Image
-                    width={160}
-                    height={160}
-                    src={item.image}
-                    alt={item.alt}
-                    className={`mb-4 h-32 w-auto object-contain ${item.imageClass ?? ""}`}
-                  />
-                  <h3 className="text-center text-lg font-bold">
-                    {t.experience.items[item.key].name}
-                  </h3>
-                  <p className="mt-2 text-center text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                    {t.experience.items[item.key].description}
-                  </p>
-                </div>
-              ))}
+              <Image
+                width={400}
+                height={400}
+                src="/assets/eu.png"
+                alt="Andrei Ramos Lopes"
+                priority
+                className="h-auto w-48 rounded-2xl shadow-xl sm:w-56 md:w-64 lg:w-72 xl:w-80"
+              />
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Portfolio */}
-        <section ref={portfolioRef} className="scroll-mt-24 py-16 lg:py-24">
-          <div className="flex flex-col items-center gap-8">
-            <h2
-              data-aos="fade-down"
-              className="text-3xl font-bold sm:text-4xl"
-            >
-              {t.portfolio.title}
-            </h2>
-            <p
-              data-aos="fade-down"
-              className="max-w-2xl text-center text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg"
-            >
-              {t.portfolio.description}
-            </p>
+          <section ref={tecnologiasRef} className="section">
+            <div className="section-inner">
+              <h2 data-aos="fade-down" className="section-title">
+                {t.technologies.title}
+              </h2>
+              <p data-aos="fade-down" className="section-description">
+                {t.technologies.description}
+              </p>
 
-            <div className="mt-4 grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {projects.map((project, index) => (
-                <div
-                  key={project.id}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 80}
-                >
-                  <PortfolioCard project={project} />
-                </div>
-              ))}
+              <div className="grid-tech w-full">
+                {techLogos.map((logo, index) => (
+                  <div
+                    key={logo.alt}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 40}
+                    className="card-hover theme-transition card-surface flex aspect-square items-center justify-center p-3 sm:p-4"
+                  >
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={64}
+                      height={64}
+                      className="h-auto w-full max-w-[56px] object-contain sm:max-w-[64px] lg:max-w-[72px]"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
 
-      <section ref={contatoRef} className="scroll-mt-24">
-        <Footer />
-      </section>
+          <section ref={experienciaRef} className="section">
+            <div className="section-inner">
+              <h2 data-aos="fade-down" className="section-title">
+                {t.experience.title}
+              </h2>
+              <p data-aos="fade-down" className="section-description">
+                {t.experience.description}
+              </p>
+
+              <div className="grid-experience w-full">
+                {experienceItems.map((item, index) => (
+                  <div
+                    key={item.key}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 80}
+                    className="card-hover theme-transition card-surface flex h-full min-h-[280px] flex-col items-center p-5 sm:min-h-[300px] sm:p-6"
+                  >
+                    <div className="mb-4 flex h-28 w-full shrink-0 items-center justify-center sm:h-32">
+                      <Image
+                        width={140}
+                        height={140}
+                        src={item.image}
+                        alt={item.alt}
+                        className={`max-h-24 max-w-[140px] object-contain sm:max-h-28 ${item.imageClass ?? ""}`}
+                      />
+                    </div>
+                    <h3 className="text-center text-base font-bold sm:text-lg">
+                      {t.experience.items[item.key].name}
+                    </h3>
+                    <p className="mt-2 flex-1 text-center text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                      {t.experience.items[item.key].description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section ref={portfolioRef} className="section">
+            <div className="section-inner">
+              <h2 data-aos="fade-down" className="section-title">
+                {t.portfolio.title}
+              </h2>
+              <p data-aos="fade-down" className="section-description">
+                {t.portfolio.description}
+              </p>
+
+              <div className="grid-portfolio w-full">
+                {projects.map((project, index) => (
+                  <div
+                    key={project.id}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 60}
+                    className="h-full"
+                  >
+                    <PortfolioCard project={project} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <section ref={contatoRef} className="scroll-mt-28">
+          <Footer />
+        </section>
       </LocaleTransition>
     </>
   );
 }
-
