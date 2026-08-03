@@ -34,7 +34,7 @@ const techLogos = [
   { src: "/assets/logos/postgresql.svg", alt: "PostgreSQL" },
   { src: "/assets/logos/prisma.svg", alt: "Prisma" },
   { src: "/assets/logos/python.png", alt: "Python" },
-  { src: "/assets/logos/sql.png", alt: "SQL" },
+  { src: "/assets/logos/mysql.svg", alt: "MySQL" },
   { src: "/assets/logos/firebase.png", alt: "Firebase" },
   { src: "/assets/logos/mongodb.png", alt: "MongoDB" },
 ];
@@ -42,7 +42,7 @@ const techLogos = [
 const experienceItems = [
   {
     key: "semit" as const,
-    image: "/assets/labs/semit.svg",
+    image: "/assets/logos/semit.jpg",
     alt: "SEMIT - Prefeitura de São Luís",
   },
   {
