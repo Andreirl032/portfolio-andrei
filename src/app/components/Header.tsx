@@ -33,10 +33,15 @@ const Header = ({ reference }: HeaderProps) => {
     elmRef: MutableRefObject<null | HTMLDivElement>
   ) => {
     setMenuOpen(false);
+    const element = elmRef.current;
+    if (!element) return;
+
+    const headerOffset = 112;
+    const top =
+      element.getBoundingClientRect().top + window.scrollY - headerOffset;
+
     window.scrollTo({
-      top: elmRef.current?.offsetTop
-        ? elmRef.current.offsetTop - 112
-        : undefined,
+      top: Math.max(0, top),
       behavior: "smooth",
     });
   };
