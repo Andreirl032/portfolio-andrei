@@ -22,7 +22,7 @@ export const projects: Project[] = [
     id: "multistep-form",
     featured: true,
     category: "web",
-    image: "/assets/projects/multistep-form.svg",
+    image: "/assets/projects/multistep-form.png",
     github: "https://github.com/Andreirl032/multistep-form",
     pt: {
       title: "Formulário Multipassos",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     id: "chefly",
     featured: true,
     category: "mobile",
-    image: "/assets/projects/chefly.svg",
+    image: "/assets/projects/chefly.jpg",
     github: "https://github.com/Andreirl032/chefly",
     pt: {
       title: "Chefly",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     id: "cidade-griot",
     featured: false,
     category: "web",
-    image: "/assets/projects/cidade-griot.svg",
+    image: "/assets/projects/cidade-griot.png",
     github: "https://github.com/Andreirl032/clone-cidadegriot",
     pt: {
       title: "Cidade Griot",
@@ -75,31 +75,50 @@ export const projects: Project[] = [
       tags: ["Next.js", "Tailwind"],
     },
   },
+  // {
+  //   id: "portfolio",
+  //   featured: false,
+  //   category: "web",
+  //   image: "/assets/projects/portfolio.svg",
+  //   github: "https://github.com/Andreirl032/portfolio-andrei",
+  //   website: "https://andreilopes.vercel.app/",
+  //   pt: {
+  //     title: "Site Pessoal",
+  //     description:
+  //       "Página em Next.js + Tailwind, estruturada como landing page responsiva.",
+  //     tags: ["Next.js", "Tailwind", "TypeScript"],
+  //   },
+  //   en: {
+  //     title: "Personal Website",
+  //     description:
+  //       "Next.js + Tailwind landing page, fully responsive.",
+  //     tags: ["Next.js", "Tailwind", "TypeScript"],
+  //   },
+  // },
   {
-    id: "portfolio",
+    id: "projeto-pibiti-miopia",
     featured: false,
-    category: "web",
-    image: "/assets/projects/portfolio.svg",
-    github: "https://github.com/Andreirl032/portfolio-andrei",
-    website: "https://andreilopes.vercel.app/",
+    category: "mobile",
+    image: "/assets/projects/projeto-pibiti-miopia.png",
+    github: "Private Repository",
     pt: {
-      title: "Site Pessoal",
+      title: "Miopia",
       description:
-        "Página em Next.js + Tailwind, estruturada como landing page responsiva.",
-      tags: ["Next.js", "Tailwind", "TypeScript"],
+        "Aplicativo móvel para monitoramento de miopia como parte de uma bolsa de desenvolvimento tecnológico na Universidade Federal do Maranhão.",
+      tags: ["React Native", "JavaScript", "Firebase"],
     },
     en: {
-      title: "Personal Website",
+      title: "Myopia",
       description:
-        "Next.js + Tailwind landing page, fully responsive.",
-      tags: ["Next.js", "Tailwind", "TypeScript"],
+        "Mobile app for myopia monitoring, as part of a technological development scholarship project at the Federal University of Maranhão.",
+      tags: ["React Native", "JavaScript", "Firebase"],
     },
   },
   {
     id: "login-project",
     featured: false,
     category: "web",
-    image: "/assets/projects/login-project.svg",
+    image: "/assets/projects/login-project.png",
     github: "https://github.com/Andreirl032/login-project",
     pt: {
       title: "Login Responsivo",
@@ -137,18 +156,18 @@ export const projects: Project[] = [
     id: "chemical-shooter",
     featured: false,
     category: "python",
-    image: "/assets/projects/chemical-shooter.svg",
+    image: "/assets/projects/chemical-shooter.png",
     github: "https://github.com/Andreirl032/Chemical-Shooter",
     pt: {
       title: "Chemical Shooter",
       description:
-        "Jogo de plataforma 2D desenvolvido em Python utilizando a biblioteca Pygame.",
+        "Jogo de plataforma 2D estilo Megaman desenvolvido em Python utilizando a biblioteca Pygame.",
       tags: ["Python", "Pygame"],
     },
     en: {
       title: "Chemical Shooter",
       description:
-        "2D platform game developed in Python using the Pygame library.",
+        "2D platform Megaman-style game developed in Python using the Pygame library.",
       tags: ["Python", "Pygame"],
     },
   },
