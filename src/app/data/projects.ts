@@ -3,8 +3,11 @@ export interface Project {
   featured: boolean;
   category: "web" | "mobile" | "python";
   image: string;
-  github: string;
+  github?: string;
   website?: string;
+  privateRepository?: boolean;
+  imageAspect?: "video" | "portrait";
+  imageFit?: "cover" | "contain";
   pt: {
     title: string;
     description: string;
@@ -99,8 +102,9 @@ export const projects: Project[] = [
     id: "projeto-pibiti-miopia",
     featured: false,
     category: "mobile",
-    image: "/assets/projects/projeto-pibiti-miopia.png",
-    github: "Private Repository",
+    image: "/assets/projects/miopia.png",
+    privateRepository: true,
+    // imageFit: "contain",
     pt: {
       title: "Miopia",
       description:

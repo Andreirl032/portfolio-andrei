@@ -63,6 +63,7 @@ export const translations = {
         "Projetos desenvolvidos ao longo da minha formação e experiência profissional:",
       viewGithub: "Ver no GitHub",
       viewWebsite: "Ver site",
+      privateRepository: "repositorio privado",
       featured: "Destaque",
       categories: {
         web: "Web",
@@ -136,6 +137,7 @@ export const translations = {
         "Projects developed throughout my education and professional experience:",
       viewGithub: "View on GitHub",
       viewWebsite: "View website",
+      privateRepository: "private repository",
       featured: "Featured",
       categories: {
         web: "Web",
