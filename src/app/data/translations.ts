@@ -18,7 +18,7 @@ export const translations = {
       name: "Eu sou Andrei Ramos Lopes",
       role: "Desenvolvedor de software",
       description:
-        "Sou graduando em Ciência da Computação pela Universidade Federal do Maranhão (UFMA), com experiência em desenvolvimento web e mobile.",
+        "Sou bacharel em Ciência da Computação pela Universidade Federal do Maranhão (UFMA), com experiência em desenvolvimento web e mobile.",
     },
     technologies: {
       title: "Tecnologias",
@@ -92,7 +92,7 @@ export const translations = {
       name: "I'm Andrei Ramos Lopes",
       role: "Software Developer",
       description:
-        "I'm a Computer Science student at the Federal University of Maranhão (UFMA), with experience in web and mobile development.",
+        "I'm a Computer Science graduate from the Federal University of Maranhão (UFMA), with experience in web and mobile development.",
     },
     technologies: {
       title: "Technologies",
