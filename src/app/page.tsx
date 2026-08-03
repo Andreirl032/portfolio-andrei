@@ -98,13 +98,13 @@ export default function Home() {
       <Header reference={reference} />
 
       <LocaleTransition>
-        <main className="page-container overflow-x-hidden pb-10 sm:pb-12">
+        <main className="page-container pb-10 sm:pb-12">
           <section
             ref={inicioRef}
-            className="section flex min-h-[calc(100dvh-5.5rem)] flex-col items-center justify-center gap-8 sm:gap-10 md:flex-row md:gap-12 lg:gap-16"
+            className="section flex flex-col items-center gap-8 sm:gap-10 md:min-h-[calc(100dvh-5.5rem)] md:flex-row md:items-center md:justify-center md:gap-12 lg:gap-16"
           >
             <div
-              className="w-full flex-1 text-center md:text-left"
+              className="w-full text-center md:flex-1 md:text-left"
               data-aos="fade-right"
             >
               <p className="text-base text-blue-600 dark:text-blue-400 sm:text-lg lg:text-xl">
@@ -122,7 +122,7 @@ export default function Home() {
             </div>
 
             <div
-              className="flex w-full shrink-0 justify-center md:w-auto md:justify-end"
+              className="flex w-full max-w-xs shrink-0 justify-center sm:max-w-sm md:w-auto md:max-w-none md:justify-end"
               data-aos="fade-left"
             >
               <Image
@@ -131,7 +131,7 @@ export default function Home() {
                 src="/assets/eu.png"
                 alt="Andrei Ramos Lopes"
                 priority
-                className="h-auto w-48 rounded-2xl shadow-xl sm:w-56 md:w-64 lg:w-72 xl:w-80"
+                className="h-auto w-full max-w-[280px] rounded-2xl shadow-xl sm:max-w-[320px] md:w-64 lg:w-72 xl:w-80"
               />
             </div>
           </section>
