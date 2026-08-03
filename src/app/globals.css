@@ -2,25 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-body {
-  background-color: #122131;
-  color: #e6e6e6
-  
-  /*cores para possível futuro: #6290c8, #2d936c, #4f7cac, #21A179, #519872*/
+  body {
+    @apply bg-[#e6e6e6] text-black antialiased;
+    @apply dark:bg-[#122131] dark:text-[#e6e6e6];
+  }
 }
 
 @layer utilities {

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" rx="12" fill="#1e293b"/>
+  <rect x="260" y="30" width="280" height="390" rx="24" fill="#0f172a" stroke="#334155" stroke-width="4"/>
+  <rect x="280" y="50" width="240" height="20" rx="10" fill="#334155"/>
+  <rect x="300" y="90" width="200" height="120" rx="12" fill="#f97316"/>
+  <rect x="300" y="230" width="200" height="16" rx="4" fill="#475569"/>
+  <rect x="300" y="260" width="160" height="12" rx="4" fill="#334155"/>
+  <rect x="300" y="290" width="200" height="40" rx="8" fill="#ea580c"/>
+  <rect x="300" y="350" width="60" height="40" rx="8" fill="#334155"/>
+  <rect x="370" y="350" width="60" height="40" rx="8" fill="#334155"/>
+  <rect x="440" y="350" width="60" height="40" rx="8" fill="#334155"/>
+  <text x="400" y="430" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="18" font-weight="600">Chefly</text>
+</svg>

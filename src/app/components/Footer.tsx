@@ -1,45 +1,62 @@
 "use client";
 
-import github from "../../../public/assets/github.svg";
-import linkedin from "../../../public/assets/linkedin.svg";
-import email from "../../../public/assets/email.svg";
 import Image from "next/image";
+import { useLanguage } from "./LanguageProvider";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
-    <footer className="flex flex-col gap-8 w-full h-48 items-center justify-center mt-28 bg-[#2081C3]">
-      <h1 className="font-bold text-2xl">Entre em contato:</h1>
-      <div className="flex flex-row gap-10 items-center">
-        <a target="_blank" href={"https://github.com/Andreirl032"}>
-          <Image
-            src={github}
-            alt="github"
-            objectFit="contain"
-            height={50}
-            width={50}
-          ></Image>
-        </a>
-        <a
-          target="_blank"
-          href={"https://www.linkedin.com/in/andrei-ramos-lopes-55aa89268/"}
-        >
-          <Image
-            src={linkedin}
-            alt="linkedin"
-            objectFit="contain"
-            height={50}
-            width={50}
-          ></Image>
-        </a>
-        <a target="_blank" href="mailto:andrei.ramos.lopes@gmail.com">
-          <Image
-            src={email}
-            alt="email"
-            objectFit="contain"
-            height={50}
-            width={50}
-          ></Image>
-        </a>
+    <footer className="w-full bg-[#2081C3] text-white">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 px-4 py-12 sm:px-6 lg:px-8">
+        <h2 className="text-xl font-bold sm:text-2xl">{t.contact.title}</h2>
+        <div className="flex flex-row flex-wrap items-center justify-center gap-8">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/Andreirl032"
+            aria-label="GitHub"
+            className="transition-transform hover:scale-110"
+          >
+            <Image
+              src="/assets/github.svg"
+              alt="GitHub"
+              height={50}
+              width={50}
+              className="brightness-0 invert"
+            />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/andrei-ramos-lopes-55aa89268/"
+            aria-label="LinkedIn"
+            className="transition-transform hover:scale-110"
+          >
+            <Image
+              src="/assets/linkedin.svg"
+              alt="LinkedIn"
+              height={50}
+              width={50}
+              className="brightness-0 invert"
+            />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="mailto:andrei.ramos.lopes@gmail.com"
+            aria-label="Email"
+            className="transition-transform hover:scale-110"
+          >
+            <Image
+              src="/assets/email.svg"
+              alt="Email"
+              height={50}
+              width={50}
+              className="brightness-0 invert"
+            />
+          </a>
+        </div>
       </div>
     </footer>
   );

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <rect width="256" height="256" rx="32" fill="#FFFFFF"/>
+  <rect x="8" y="8" width="240" height="240" rx="24" fill="#0066CC" opacity="0.08"/>
+  <circle cx="128" cy="100" r="48" fill="#0066CC" opacity="0.15"/>
+  <rect x="72" y="148" width="112" height="56" rx="8" fill="#0066CC"/>
+  <rect x="88" y="164" width="24" height="24" rx="2" fill="#FFFFFF" opacity="0.8"/>
+  <rect x="116" y="164" width="24" height="24" rx="2" fill="#FFFFFF" opacity="0.8"/>
+  <rect x="144" y="164" width="24" height="24" rx="2" fill="#FFFFFF" opacity="0.8"/>
+  <path d="M128 52 L148 92 L108 92 Z" fill="#FFD700"/>
+  <rect x="118" y="92" width="20" height="28" fill="#8B4513"/>
+  <text x="128" y="232" text-anchor="middle" fill="#0066CC" font-family="system-ui,sans-serif" font-size="18" font-weight="700">Prefeitura SLZ</text>
+</svg>

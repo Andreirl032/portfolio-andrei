@@ -2,243 +2,254 @@
 
 import Image from "next/image";
 import Header from "./components/Header";
-import myself from "../../public/assets/eu.png";
+import Footer from "./components/Footer";
+import PortfolioCard from "./components/PortfolioCard";
 import { MutableRefObject, useEffect, useRef } from "react";
+import { useLanguage } from "./components/LanguageProvider";
+import { projects } from "./data/projects";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import html from "../../public/assets/logos/html.png";
-import css from "../../public/assets/logos/css.png";
-import js from "../../public/assets/logos/js.png";
-import ts from "../../public/assets/logos/ts.png";
-import react from "../../public/assets/logos/react.png";
-import next from "../../public/assets/logos/next.png";
-import python from "../../public/assets/logos/python.png";
-import sql from "../../public/assets/logos/sql.png";
-import firebase from "../../public/assets/logos/firebase.png";
-import mongodb from "../../public/assets/logos/mongodb.png";
-import tailwind from "../../public/assets/logos/tailwind.png";
-import native from "../../public/assets/logos/native.png";
-
-import telemidia from "../../public/assets/labs/telemidia-removebg.png";
-import pulse from "../../public/assets/labs/pulse-removebg.png";
-import viplab from "../../public/assets/labs/viplab-removebg.png";
-import lsdi from "../../public/assets/labs/lsdi-removebg.png";
-
-import Footer from "./components/Footer";
-
 interface Reference {
   inicio: MutableRefObject<null | HTMLDivElement>;
   tecnologias: MutableRefObject<null | HTMLDivElement>;
-  projetos: MutableRefObject<null | HTMLDivElement>;
+  experiencia: MutableRefObject<null | HTMLDivElement>;
+  portfolio: MutableRefObject<null | HTMLDivElement>;
   contato: MutableRefObject<null | HTMLDivElement>;
 }
 
+const techLogos = [
+  { src: "/assets/logos/html.png", alt: "HTML" },
+  { src: "/assets/logos/css.png", alt: "CSS" },
+  { src: "/assets/logos/js.png", alt: "JavaScript" },
+  { src: "/assets/logos/ts.png", alt: "TypeScript" },
+  { src: "/assets/logos/react.png", alt: "React" },
+  { src: "/assets/logos/native.png", alt: "React Native" },
+  { src: "/assets/logos/next.png", alt: "Next.js" },
+  { src: "/assets/logos/tailwind.png", alt: "Tailwind CSS" },
+  { src: "/assets/logos/nodejs.svg", alt: "Node.js" },
+  { src: "/assets/logos/express.svg", alt: "Express.js" },
+  { src: "/assets/logos/postgresql.svg", alt: "PostgreSQL" },
+  { src: "/assets/logos/prisma.svg", alt: "Prisma" },
+  { src: "/assets/logos/python.png", alt: "Python" },
+  { src: "/assets/logos/sql.png", alt: "SQL" },
+  { src: "/assets/logos/firebase.png", alt: "Firebase" },
+  { src: "/assets/logos/mongodb.png", alt: "MongoDB" },
+];
+
+const experienceItems = [
+  {
+    key: "semit" as const,
+    image: "/assets/labs/semit.svg",
+    alt: "SEMIT - Prefeitura de São Luís",
+  },
+  {
+    key: "lsdi" as const,
+    image: "/assets/labs/lsdi-removebg.png",
+    alt: "LSDi",
+  },
+  {
+    key: "viplab" as const,
+    image: "/assets/labs/viplab-removebg.png",
+    alt: "VIPLab",
+  },
+  {
+    key: "telemidia" as const,
+    image: "/assets/labs/telemidia-removebg.png",
+    alt: "Telemídia-MA",
+  },
+  {
+    key: "pulse" as const,
+    image: "/assets/labs/pulse-removebg.png",
+    alt: "Pulse",
+    imageClass: "bg-black dark:bg-gray-700 rounded-lg p-2",
+  },
+];
+
 export default function Home() {
+  const { t } = useLanguage();
+
   const inicioRef = useRef<null | HTMLDivElement>(null);
   const tecnologiasRef = useRef<null | HTMLDivElement>(null);
-  const projetosRef = useRef<null | HTMLDivElement>(null);
+  const experienciaRef = useRef<null | HTMLDivElement>(null);
+  const portfolioRef = useRef<null | HTMLDivElement>(null);
   const contatoRef = useRef<null | HTMLDivElement>(null);
 
   const reference: Reference = {
     inicio: inicioRef,
     tecnologias: tecnologiasRef,
-    projetos: projetosRef,
+    experiencia: experienciaRef,
+    portfolio: portfolioRef,
     contato: contatoRef,
   };
 
-  const linha1 = [
-    { src: html, alt: "html" },
-    { src: css, alt: "css" },
-    { src: js, alt: "js" },
-    { src: ts, alt: "ts" },
-  ];
-
-  const linha2 = [
-    { src: react, alt: "react" },
-    { src: native, alt: "native" },
-    { src: next, alt: "next" },
-    { src: tailwind, alt: "tailwind" },
-  ];
-
-  const linha3 = [
-    { src: python, alt: "python" },
-    { src: sql, alt: "sql" },
-    { src: firebase, alt: "firebase" },
-    { src: mongodb, alt: "mongodb" },
-  ];
-
-  //Inicialização do AOS
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: false,
+      duration: 800,
+      once: true,
+      offset: 50,
     });
   }, []);
 
   return (
     <>
-      {/* Header da página */}
       <Header reference={reference} />
 
-      <main className="mt-16 overflow-x-hidden">
-        {/* Container da página inicial */}
+      <main className="mx-auto max-w-7xl overflow-x-hidden px-4 pb-8 sm:px-6 lg:px-8">
+        {/* Hero */}
         <section
-          className="flex w-auto flex-row items-center justify-between"
           ref={inicioRef}
+          className="flex min-h-[calc(100vh-6rem)] flex-col items-center justify-center gap-10 py-12 md:flex-row md:gap-16 lg:py-20"
         >
-          {/* Texto de descrição */}
-          <div className="ml-24 w-full" data-aos="fade-right">
-            <h3 className="text-xl">Bem vindo!</h3>
-            <h1 className="font-bold text-4xl">Eu sou Andrei Ramos Lopes</h1>
-            <h2 className="text-2xl">Desenvolvedor front-end</h2>
-
-            <h2 className="text-2xl mt-10 break-normal">
-              Sou estudante de programação pela Universidade Federal do Maranhão
-              (UFMA) e programador Front-end.
-            </h2>
+          <div className="flex-1 text-center md:text-left" data-aos="fade-right">
+            <p className="text-lg text-blue-600 dark:text-blue-400 sm:text-xl">
+              {t.hero.welcome}
+            </p>
+            <h1 className="mt-2 text-3xl font-bold sm:text-4xl lg:text-5xl">
+              {t.hero.name}
+            </h1>
+            <h2 className="mt-2 text-xl sm:text-2xl">{t.hero.role}</h2>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg">
+              {t.hero.description}
+            </p>
           </div>
 
-          {/* Foto de mim mesmo */}
-          <div className="ml-auto mr-24 w-full" data-aos="fade-left">
+          <div
+            className="flex shrink-0 justify-center md:justify-end"
+            data-aos="fade-left"
+          >
             <Image
-              width={444}
-              height={444}
-              src={myself}
-              alt="myself"
-              className="rounded-3xl ml-auto"
+              width={400}
+              height={400}
+              src="/assets/eu.png"
+              alt="Andrei Ramos Lopes"
+              priority
+              className="h-auto w-64 rounded-3xl shadow-xl sm:w-80 lg:w-[400px]"
             />
           </div>
         </section>
 
+        {/* Technologies */}
         <section
-          className="flex w-auto items-center justify-center mt-28"
           ref={tecnologiasRef}
+          className="scroll-mt-24 py-16 lg:py-24"
         >
-          <div className="flex flex-col gap-8 items-center">
-            <h1 data-aos="fade-down" className="font-bold text-4xl">
-              Tecnologias
-            </h1>
-            <h2 data-aos="fade-down" className="w-[50%] text-2xl text-center">
-              Tenho conhecimentos principalmente em desenvolvimento web e
-              mobile, e ao longo do tempo aprendi acerca de diversas
-              tecnologias, sendo as principais:
+          <div className="flex flex-col items-center gap-8">
+            <h2
+              data-aos="fade-down"
+              className="text-3xl font-bold sm:text-4xl"
+            >
+              {t.technologies.title}
             </h2>
-            <div className="flex flex-col gap-6">
-              {[linha1, linha2, linha3].map((linha, i) => (
+            <p
+              data-aos="fade-down"
+              className="max-w-2xl text-center text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg"
+            >
+              {t.technologies.description}
+            </p>
+
+            <div className="mt-4 grid w-full max-w-5xl grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
+              {techLogos.map((logo, index) => (
                 <div
-                  key={i}
-                  className="flex gap-10 justify-center items-center"
+                  key={logo.alt}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 50}
+                  className="flex aspect-square items-center justify-center rounded-xl border border-gray-300 bg-white p-4 transition-transform hover:scale-105 dark:border-gray-600 dark:bg-[#1a3044] sm:p-6"
                 >
-                  {linha.map((img, j) => (
-                    <div
-                      key={j}
-                      className="w-44 h-44 p-6 border-[1px] border-black dark:border-gray-300 rounded-xl flex justify-center items-center hover:scale-105 transition-all"
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        width={100}
-                        height={100}
-                        className="object-contain w-full h-full"
-                      />
-                    </div>
-                  ))}
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={80}
+                    height={80}
+                    className="h-auto w-full max-w-[80px] object-contain"
+                  />
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        {/* Experience */}
         <section
-          className="flex w-auto items-center justify-center mt-28"
-          ref={projetosRef}
+          ref={experienciaRef}
+          className="scroll-mt-24 py-16 lg:py-24"
         >
-          <div className="flex flex-col gap-8 items-center">
-            <h1 data-aos="fade-down" className="font-bold text-4xl">
-              Projetos
-            </h1>
-            <h2 data-aos="fade-down" className="w-[50%] text-2xl text-center">
-              Ao longo do meu curso na ciência da computação, participei de
-              excelentes projetos em locais de renome, como:
+          <div className="flex flex-col items-center gap-8">
+            <h2
+              data-aos="fade-down"
+              className="text-3xl font-bold sm:text-4xl"
+            >
+              {t.experience.title}
             </h2>
-            <div className="flex flex-row gap-4">
-              <div className="p-8 max-w-64 rounded-xl border-[1px] border-black dark:border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
-                <Image
-                  width={200}
-                  height={200}
-                  objectFit="contain"
-                  src={telemidia}
-                  alt="telemidia"
-                ></Image>
-                <h1 className="font-bold text-xl">Telemídia-MA</h1>
-                <h2 className="max-w-32 text-center text-sm">
-                  Trabalhei como desenvolvedor fullstack do projeto Cosmo, um
-                  website destinado ao ensino gamificado de algoritmos
-                </h2>
-              </div>
-              <div className="p-8 max-w-64 rounded-xl border-[1px] border-black dark:border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
-                <Image
-                  width={200}
-                  height={200}
-                  objectFit="contain"
-                  src={pulse}
-                  alt="pulse"
-                  className="bg-black dark:bg-current mb-5"
-                ></Image>
-                <h1 className="font-bold text-xl">Pulse</h1>
-                <h2 className="max-w-32 text-center text-sm">
-                  Atuei como estagiário da Pulse, o setor de tecnologia do Grupo
-                  Mateus, em parceria com o Telemídia-MA para a instrução de
-                  jovens aprendizes e organização de uma maratona de programação
-                </h2>
-              </div>
-              <div className="p-8 max-w-64 rounded-xl border-[1px] border-black dark:border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
-                <Image
-                  width={200}
-                  height={200}
-                  objectFit="contain"
-                  src={viplab}
-                  alt="viplab"
-                ></Image>
-                <h1 className="font-bold text-xl text-center">
-                  VIPLab (Vision and Image Processing Lab)
-                </h1>
-                <h2 className="max-w-32 text-center text-sm">
-                  Desenvolvi uma aplicação móvel para acompanhamento de miopia,
-                  mediante projeto de iniciação tecnológica financiado pelo CNPq
-                </h2>
-              </div>
-              <div className="p-8 max-w-64 rounded-xl border-[1px] border-black dark:border-gray-300 flex flex-col items-center hover:scale-105 transition-all">
-                <Image
-                  width={200}
-                  height={200}
-                  objectFit="contain"
-                  src={lsdi}
-                  alt="lsdi"
-                  className="my-10"
-                ></Image>
-                <h1 className="font-bold text-xl text-center">
-                  LSDi (Laboratório de Sistemas Distribuídos Inteligentes)
-                </h1>
-                <h2 className="max-w-32 text-center text-sm">
-                  Participante da versão 2.0 do SESI Monitore, atuando em coleta
-                  e distribuição de dados de monitoramento da saúde dos
-                  trabalhadores, na área de Internet das Coisas(IoT)
-                </h2>
-              </div>
+            <p
+              data-aos="fade-down"
+              className="max-w-2xl text-center text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg"
+            >
+              {t.experience.description}
+            </p>
+
+            <div className="mt-4 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {experienceItems.map((item, index) => (
+                <div
+                  key={item.key}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                  className="flex flex-col items-center rounded-xl border border-gray-300 bg-white p-6 transition-transform hover:scale-[1.02] dark:border-gray-600 dark:bg-[#1a3044]"
+                >
+                  <Image
+                    width={160}
+                    height={160}
+                    src={item.image}
+                    alt={item.alt}
+                    className={`mb-4 h-32 w-auto object-contain ${item.imageClass ?? ""}`}
+                  />
+                  <h3 className="text-center text-lg font-bold">
+                    {t.experience.items[item.key].name}
+                  </h3>
+                  <p className="mt-2 text-center text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                    {t.experience.items[item.key].description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section
-          className="flex w-auto items-center justify-center mt-28"
-          ref={contatoRef}
-        >
-          <Footer />
+        {/* Portfolio */}
+        <section ref={portfolioRef} className="scroll-mt-24 py-16 lg:py-24">
+          <div className="flex flex-col items-center gap-8">
+            <h2
+              data-aos="fade-down"
+              className="text-3xl font-bold sm:text-4xl"
+            >
+              {t.portfolio.title}
+            </h2>
+            <p
+              data-aos="fade-down"
+              className="max-w-2xl text-center text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg"
+            >
+              {t.portfolio.description}
+            </p>
+
+            <div className="mt-4 grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {projects.map((project, index) => (
+                <div
+                  key={project.id}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 80}
+                >
+                  <PortfolioCard project={project} />
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
       </main>
+
+      <section ref={contatoRef} className="scroll-mt-24">
+        <Footer />
+      </section>
     </>
   );
 }

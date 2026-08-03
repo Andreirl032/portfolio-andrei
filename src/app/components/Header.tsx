@@ -1,12 +1,15 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useState } from "react";
+import { useLanguage } from "./LanguageProvider";
+import ThemeToggle from "./ThemeToggleButton";
+import LanguageToggle from "./LanguageToggle";
 
 interface Reference {
   inicio: MutableRefObject<null | HTMLDivElement>;
   tecnologias: MutableRefObject<null | HTMLDivElement>;
-  projetos: MutableRefObject<null | HTMLDivElement>;
+  experiencia: MutableRefObject<null | HTMLDivElement>;
+  portfolio: MutableRefObject<null | HTMLDivElement>;
   contato: MutableRefObject<null | HTMLDivElement>;
 }
 
@@ -15,62 +18,111 @@ interface HeaderProps {
 }
 
 const Header = ({ reference }: HeaderProps) => {
-  console.log(reference)
-  const [mounted, setMounted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
-  const { theme, setTheme } = useTheme();
-  useEffect(() => {
-    setMounted(true);
-    // console.log(theme);
-  }, [theme]);
+  const navItems = [
+    { key: "home", ref: reference.inicio },
+    { key: "technologies", ref: reference.tecnologias },
+    { key: "experience", ref: reference.experiencia },
+    { key: "portfolio", ref: reference.portfolio },
+    { key: "contact", ref: reference.contato },
+  ] as const;
 
-  const scrollToSection = (elmRef: MutableRefObject<null | HTMLDivElement>) => {
+  const scrollToSection = (
+    elmRef: MutableRefObject<null | HTMLDivElement>
+  ) => {
+    setMenuOpen(false);
     window.scrollTo({
-      top: elmRef.current?.offsetTop ? elmRef.current?.offsetTop-128 : undefined,
+      top: elmRef.current?.offsetTop
+        ? elmRef.current.offsetTop - 96
+        : undefined,
       behavior: "smooth",
     });
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setMenuOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <header className="flex left-3 top-3 z-10 sticky bg-[#e6e6e6] dark:bg-[#122131] items-center justify-between mx-3 mt-3 rounded-lg border-black dark:border-gray-600 border-[2px] h-20 w-auto flex-row text-black dark:text-white shadow-xl">
-      <div className="flex flex-row justify-around min-w-[70%]">
-        <button onClick={() => scrollToSection(reference.inicio)}>
-          <h2 className="text-xl">Início</h2>
+    <header className="sticky top-0 z-50 mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
+      <div className="flex h-16 items-center justify-between rounded-xl border-2 border-gray-300 bg-[#e6e6e6] px-4 shadow-lg dark:border-gray-600 dark:bg-[#122131] sm:px-6">
+        <button
+          type="button"
+          className="text-lg font-bold md:hidden"
+          onClick={() => scrollToSection(reference.inicio)}
+        >
+          ARL
         </button>
-        <button onClick={() => scrollToSection(reference.tecnologias)}>
-          <h2 className="text-xl">Tecnologias</h2>
-        </button>
-        <button onClick={() => scrollToSection(reference.projetos)}>
-          <h2 className="text-xl">Projetos</h2>
-        </button>
-        <button onClick={() => scrollToSection(reference.contato)}>
-          <h2 className="text-xl">Contato</h2>
-        </button>
-      </div>
-      {!mounted ? null : (
-        <div className="mr-10 inline-flex items-center">
-          <span className="me-3 text-md font-medium text-black dark:text-gray-300">
-            Modo claro
-          </span>
-          <label className="inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              value=""
-              checked={theme === "dark" ? true : false}
-              className="sr-only peer"
-              onChange={() => {
-                if (theme === "dark") {
-                  return setTheme("light");
-                }
-                return setTheme("dark");
-              }}
-            />
-            <div className="transition relative w-[3.45rem] h-7 bg-gray-500 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[0.19rem] after:start-[6px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[1.4rem] after:w-[1.4rem] after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-          </label>
-          <span className="ms-3 text-md font-medium text-black dark:text-gray-300">
-            Modo escuro
-          </span>
+
+        <nav className="hidden items-center gap-6 md:flex">
+          {navItems.map(({ key, ref }) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => scrollToSection(ref)}
+              className="text-base transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+            >
+              {t.nav[key]}
+            </button>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3 sm:gap-4">
+          <LanguageToggle />
+          <div className="h-5 w-px bg-gray-300 dark:bg-gray-600" />
+          <ThemeToggle />
+
+          <button
+            type="button"
+            className="rounded-md p-2 md:hidden"
+            aria-label="Menu"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              {menuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              )}
+            </svg>
+          </button>
         </div>
+      </div>
+
+      {menuOpen && (
+        <nav className="mt-2 flex flex-col gap-2 rounded-xl border-2 border-gray-300 bg-[#e6e6e6] p-4 shadow-lg dark:border-gray-600 dark:bg-[#122131] md:hidden">
+          {navItems.map(({ key, ref }) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => scrollToSection(ref)}
+              className="rounded-md px-3 py-2 text-left text-base transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              {t.nav[key]}
+            </button>
+          ))}
+        </nav>
       )}
     </header>
   );

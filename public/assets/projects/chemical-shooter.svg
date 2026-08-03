@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" rx="12" fill="#1e293b"/>
+  <rect x="40" y="40" width="720" height="370" rx="8" fill="#0f172a"/>
+  <rect x="40" y="320" width="720" height="90" fill="#334155"/>
+  <rect x="100" y="200" width="60" height="120" rx="4" fill="#22c55e"/>
+  <rect x="200" y="160" width="40" height="40" rx="20" fill="#ef4444"/>
+  <rect x="400" y="180" width="50" height="50" rx="4" fill="#eab308"/>
+  <rect x="550" y="140" width="80" height="30" rx="4" fill="#a855f7"/>
+  <polygon points="300,280 350,220 400,280" fill="#3b82f6"/>
+  <text x="400" y="430" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="18" font-weight="600">Chemical Shooter</text>
+</svg>
