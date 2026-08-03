@@ -51,17 +51,21 @@ export default function ThemeToggle() {
       aria-label={isDark ? "Ativar modo claro" : "Ativar modo escuro"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={`interactive-scale theme-transition relative h-7 w-14 shrink-0 rounded-full p-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 ${
-        isDark ? "bg-slate-600" : "bg-amber-200/80"
+        isDark ? "bg-slate-800" : "bg-gray-400"
       }`}
     >
       <SunIcon
-        className={`theme-transition pointer-events-none absolute left-1.5 top-1.5 h-4 w-4 text-amber-500 ${
-          isDark ? "scale-90 opacity-40" : "scale-110 opacity-100"
+        className={`theme-transition pointer-events-none absolute left-1.5 top-1.5 h-4 w-4 ${
+          isDark
+            ? "scale-90 text-gray-500 opacity-60"
+            : "scale-110 text-orange-700 drop-shadow-sm"
         }`}
       />
       <MoonIcon
-        className={`theme-transition pointer-events-none absolute right-1.5 top-1.5 h-4 w-4 text-indigo-200 ${
-          isDark ? "scale-110 opacity-100" : "scale-90 opacity-40"
+        className={`theme-transition pointer-events-none absolute right-1.5 top-1.5 h-4 w-4 ${
+          isDark
+            ? "scale-110 text-slate-100 drop-shadow-sm"
+            : "scale-90 text-gray-600 opacity-60"
         }`}
       />
       <span
