@@ -55,7 +55,8 @@ const Header = ({ reference }: HeaderProps) => {
   }, []);
 
   return (
-    <header className="page-container sticky top-0 z-50 pt-3 sm:pt-4">
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div className="page-container bg-[#e6e6e6]/95 pb-1 pt-3 backdrop-blur-sm dark:bg-[#122131]/95 sm:pt-4">
       <div className="theme-transition flex h-14 items-center justify-between gap-3 rounded-xl border border-gray-300 bg-[#e6e6e6] px-3 shadow-lg dark:border-gray-600 dark:bg-[#122131] sm:h-16 sm:gap-4 sm:px-5 lg:px-6">
         <button
           type="button"
@@ -135,6 +136,7 @@ const Header = ({ reference }: HeaderProps) => {
           ))}
         </nav>
       )}
+      </div>
     </header>
   );
 };

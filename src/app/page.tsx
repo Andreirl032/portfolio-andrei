@@ -97,6 +97,9 @@ export default function Home() {
     <>
       <Header reference={reference} />
 
+      {/* Espaço reservado para o header fixo */}
+      <div aria-hidden className="h-[4.25rem] shrink-0 sm:h-20" />
+
       <LocaleTransition>
         <main className="page-container pb-10 sm:pb-12">
           <section

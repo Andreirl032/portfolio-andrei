@@ -5,13 +5,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
   }
 
   body {
     @apply bg-[#e6e6e6] text-black antialiased;
     @apply dark:bg-[#122131] dark:text-[#e6e6e6];
-    overflow-x: hidden;
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 
